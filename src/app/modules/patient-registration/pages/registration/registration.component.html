@@ -5,6 +5,9 @@
         <div class="col-md order-md-first text-center text-md-left pl-0">
             <kendo-breadcrumb class="pl-0" [items]="items"></kendo-breadcrumb>
         </div>
+        <div class="col-md order-md-first text-right text-md-right pl-0">
+            <button kendoBmbkutton class="k-button k-primary" (click)="addRegistration()" primary="true">registerForm</button>
+        </div>
     </div>
 
     <div class="card">
@@ -102,11 +105,121 @@
 
     <!-- <app-active-issues [statusCounts]="statusCounts$ | async"></app-active-issues> -->
 </div>
-{{opened}}
 <kendo-dialog title="Please confirm" *ngIf="opened" (close)="close('cancel')" [minWidth]="250" [width]="450">
     <p style="margin: 30px; text-align: center;">Are you sure you want to Save?</p>
     <kendo-dialog-actions class="k-form-buttons k-actions-center">
         <button kendoButton class="k-button" (click)="close('no')">No</button>
         <button kendoBmbkutton class="k-button k-primary" (click)="close('yes')" primary="true">Yes</button>
+    </kendo-dialog-actions>
+</kendo-dialog>
+
+<kendo-dialog title="Patient Registration" *ngIf="isRegister" (close)="close('cancel')" [minWidth]="250" [height]="550" [width]="800">
+    <div class="card">
+        <!-- <h3 class="card-header">Active Issues</h3> -->
+        <div class="card-block">
+            <div class="">
+                <form class="k-form k-form-horizontal" [formGroup]="registerForm">
+                    <fieldset class="k-form-fieldset row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <kendo-formfield class="" [orientation]="'horizontal'">
+                                <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="firstName" text="MRN :"></kendo-label>
+                                <input class="p-p-col-12" formControlName="firstName" kendoTextBox #firstName required />
+
+                                <!-- <kendo-formhint>Your first name</kendo-formhint> -->
+                                <kendo-formerror>Error: First name is required</kendo-formerror>
+                            </kendo-formfield>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <kendo-formfield class="" [orientation]="'horizontal'">
+                                <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="firstName" text="First Name :"></kendo-label>
+                                <input class="p-col-12" formControlName="firstName" kendoTextBox #firstName required />
+
+                                <!-- <kendo-formhint>Your first name</kendo-formhint> -->
+                                <kendo-formerror>Error: First name is required</kendo-formerror>
+                            </kendo-formfield>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <kendo-formfield class="" [orientation]="'horizontal'">
+                                <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="lastName" text="Middle Name :"></kendo-label>
+                                <input class="p-col-12" formControlName="lastName" kendoTextBox #lastName required />
+
+                                <!-- <kendo-formhint>Your last name</kendo-formhint> -->
+                                <kendo-formerror>Error: Last name is required</kendo-formerror>
+                            </kendo-formfield>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <kendo-formfield class="" [orientation]="'horizontal'">
+                                <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="lastName" text="Family Name :"></kendo-label>
+                                <input class="p-col-12" formControlName="lastName" kendoTextBox #lastName required />
+
+                                <!-- <kendo-formhint>Your last name</kendo-formhint> -->
+                                <kendo-formerror>Error: Last name is required</kendo-formerror>
+                            </kendo-formfield>
+                        </div>
+                        <!-- <legend class="k-form-legend">User Details</legend> -->
+
+
+
+
+
+
+
+                        <kendo-formfield class="" [orientation]="'horizontal'">
+                            <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="DOB :"></kendo-label>
+                            <input class="p-col-12" formControlName="email" kendoTextBox #email required />
+
+                            <!-- <kendo-formhint>Your active email</kendo-formhint> -->
+                            <kendo-formerror>Error: Not valid email format</kendo-formerror>
+                        </kendo-formfield>
+                        <kendo-formfield class="" [orientation]="'horizontal'">
+                            <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="Nationality :"></kendo-label>
+                            <input class="p-col-12" formControlName="email" kendoTextBox #email required />
+
+                            <!-- <kendo-formhint>Your active email</kendo-formhint> -->
+                            <kendo-formerror>Error: Not valid email format</kendo-formerror>
+                        </kendo-formfield>
+                        <kendo-formfield class="" [orientation]="'horizontal'">
+                            <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="Mobile# :"></kendo-label>
+                            <input class="p-col-12" formControlName="email" kendoTextBox #email required />
+
+                            <!-- <kendo-formhint>Your active email</kendo-formhint> -->
+                            <kendo-formerror>Error: Not valid email format</kendo-formerror>
+                        </kendo-formfield>
+                    </fieldset>
+
+
+                </form>
+
+                <div class="example pt-3 mt-3 mx-0 px-0">
+                    <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
+                    <form class="k-form k-form-horizontal" [formGroup]="form">
+                        <app-personal-details *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-personal-details>
+
+                        <personal-details *ngIf="currentStep === 1" [personalDetails]="currentGroup"> </personal-details>
+
+                        <payment-details *ngIf="currentStep === 2" [paymentDetails]="currentGroup"> </payment-details>
+                        <payment-details *ngIf="currentStep === 3" [paymentDetails]="currentGroup"> </payment-details>
+                        <payment-details *ngIf="currentStep === 4" [paymentDetails]="currentGroup"> </payment-details>
+                        <payment-details *ngIf="currentStep === 5" [paymentDetails]="currentGroup"> </payment-details>
+                        <payment-details *ngIf="currentStep === 6" [paymentDetails]="currentGroup"> </payment-details>
+                        <span class="k-form-separator"></span>
+
+                        <div class="k-form-buttons k-form-step">
+                            <span class="page">Step {{ currentStep + 1 }} of 7</span>
+                            <div>
+                                <button class="k-button prev k-submit" *ngIf="currentStep !== 0" (click)="prev()" kendoButton>Previous</button>
+                                <button class="k-button k-primary k-submit" kendoButton (click)="next()" *ngIf="currentStep !== 6">Next</button>
+                                <button class="k-button k-primary k-submit" kendoButton (click)="submit()" *ngIf="currentStep === 6">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+    <kendo-dialog-actions class="k-form-buttons k-actions-center">
+        <button kendoButton class="k-button" (click)="close('no')">Cancel</button>
+        <button kendoBmbkutton class="k-button k-primary" (click)="close('yes')" primary="true">Submit</button>
     </kendo-dialog-actions>
 </kendo-dialog>

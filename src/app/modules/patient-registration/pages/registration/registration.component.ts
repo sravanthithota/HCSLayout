@@ -6,8 +6,8 @@ const defaultItems: BreadCrumbItem[] = [
   {
     text: "Registration",
     title: "Registration",
-    icon: "home",
-  },
+    icon: "home", 
+   },
   {
     text: "Patient Master Index",
     title: "Products",
@@ -24,6 +24,7 @@ export class RegistrationComponent implements OnInit {
   public items: BreadCrumbItem[] = [...defaultItems];
   public currentStep = 0;
   public opened = false;
+  public isRegister:boolean = false;
 
   
   @ViewChild('stepper', {static: true})
@@ -52,10 +53,14 @@ private shouldValidate = (index: number): boolean => {
 public close(status:any) {
   console.log(`Dialog result: ${status}`);
   this.opened = false;
+  this.isRegister = false; 
 }
 
 public open() {
   this.opened = true;
+}
+public addRegistration(){
+  this.isRegister = true;
 }
   
 
