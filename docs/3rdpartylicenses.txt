@@ -84,6 +84,9 @@ SEE LICENSE IN LICENSE.md
 @progress/kendo-angular-dateinputs
 SEE LICENSE IN LICENSE.md
 
+@progress/kendo-angular-dialog
+SEE LICENSE IN LICENSE.md
+
 @progress/kendo-angular-dropdowns
 SEE LICENSE IN LICENSE.md
 

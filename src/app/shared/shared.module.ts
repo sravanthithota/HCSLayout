@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MenusModule } from '@progress/kendo-angular-menu';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationModule } from "@progress/kendo-angular-navigation";
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
@@ -14,6 +15,7 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { GridModule, PDFModule, ExcelModule } from '@progress/kendo-angular-grid';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { LayoutModule } from "@progress/kendo-angular-layout";
+import { DialogModule } from '@progress/kendo-angular-dialog';
 
 @NgModule({
     imports: [
@@ -31,6 +33,7 @@ import { LayoutModule } from "@progress/kendo-angular-layout";
         PresetFilterComponent,
         NgbModule,
         MenusModule,
+        BrowserModule,
         BrowserAnimationsModule,
         NavigationModule,
         DateInputsModule,
@@ -41,7 +44,8 @@ import { LayoutModule } from "@progress/kendo-angular-layout";
         InputsModule,
         PDFModule,
         ExcelModule,
-        LayoutModule
+        LayoutModule,
+        DialogModule
     ],
     declarations: [
         MainMenuComponent,

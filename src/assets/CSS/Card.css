@@ -6,12 +6,17 @@
     word-wrap: break-word;
     background-color: #ecf1f9;
     background-clip: border-box;
-    border: 1 px solid rgba(0,0,0,.125);
-   border-radius: 0.25rem;
-   padding:0.5rem;
-   margin-bottom:0.5rem;
+    border: 1 px solid rgba(0, 0, 0, .125);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
 }
-.card.card-white{
+
+.card.card-white {
+    background-color: white;
+}
+
+.card.card-blue {
     background-color: white;
 }
 
@@ -27,23 +32,27 @@
     border-radius: 0.5rem;
 }
 
-.circle-icon{
-   
-    padding:5px;
+.circle-icon {
+    padding: 5px;
     border-radius: 50%;
 }
-.circle-icon.edit{
+
+.circle-icon.edit {
     background: #28bfba;
 }
-.circle-icon.send{
+
+.circle-icon.send {
     background: black;
 }
-.circle-icon.delete{
+
+.circle-icon.delete {
     background: #dc3545;
 }
-.font-color-primary{
+
+.font-color-primary {
     color: #28bfba;
 }
+
 .teamMate:after {
     content: ".";
     display: block;
@@ -52,16 +61,19 @@
     clear: both;
     visibility: hidden;
 }
+
 .teamMate h2 {
     font-size: 1.3em;
     font-weight: normal;
     padding-top: 17px;
     margin: 0;
 }
+
 .teamMate p {
     margin: 0;
     font-size: .8em;
 }
+
 .teamMate img {
     display: inline-block;
     vertical-align: top;
@@ -71,10 +83,12 @@
     border: 1px solid #ccc;
     border-radius: 50%;
 }
+
 .mate-info {
     display: inline-block;
     vertical-align: top;
 }
+
 .panelbar-wrapper {
     max-width: 300px;
     margin: 0 auto;

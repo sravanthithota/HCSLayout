@@ -6,14 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { BacklogModule } from './modules/backlog/backlog.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
-
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { PatientRegistrationModule } from './modules/patient-registration/patient-registration.module';
 
 @NgModule({
   declarations: [
     AppComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +21,8 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     SharedModule,
     DashboardModule,
-    BacklogModule
+    BacklogModule,
+    PatientRegistrationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

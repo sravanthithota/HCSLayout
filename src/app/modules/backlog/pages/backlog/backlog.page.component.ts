@@ -64,6 +64,7 @@ export class BacklogPageComponent implements OnInit {
     }
 
     public onAddTap(content: any) {
+        console.log(content);
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
             if (typeof result === 'object') {
                 if (this.store.value.currentUser) {
