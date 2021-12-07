@@ -3,9 +3,11 @@
     background-color: #4472c4 !important;
 }
 
+
+/* 
 body {
     min-height: calc(100% - 60px);
-}
+} */
 
 .k-form-buttons.k-form-step>*:last-child {
     margin-right: 0;
@@ -12362,7 +12364,7 @@ kendo-badge-container {
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0.25rem;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
@@ -12581,10 +12583,10 @@ kendo-badge-container {
 
 .k-input {
     margin: 0;
-    padding: 4px 8px;
+    padding: 1px 2px;
     width: 100%;
     min-width: 0;
-    height: calc(1.4285714286em + 8px);
+    /* height: calc(1.4285714286em + 8px); */
     border: 0;
     outline: 0;
     box-sizing: border-box;
@@ -13537,6 +13539,7 @@ kendo-label>.k-label {
     display: flex;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
+    padding: 0 0.5em;
     /* font-weight:500; */
 }
 
@@ -13721,9 +13724,10 @@ kendo-label>.k-label {
     flex: 1 1 auto;
 }
 
-.k-form-horizontal .k-form-buttons {
+
+/* .k-form-horizontal .k-form-buttons {
     margin-top: 2em;
-}
+} */
 
 .k-form [dir="rtl"] .k-form-buttons>*,
 .k-form [dir="rtl"].k-form-buttons>*,
@@ -16113,7 +16117,7 @@ kendo-label.k-radio-label>.k-label {
     margin: 0;
     padding: 0;
     width: 12.4em;
-    height: calc(1.4285714286em + 10px);
+    /* height: calc(1.4285714286em + 10px); */
     border-width: 1px;
     border-style: solid;
     outline: 0;
@@ -16190,7 +16194,7 @@ kendo-label.k-radio-label>.k-label {
 }
 
 input.k-textbox {
-    padding: 4px 8px;
+    padding: 1px 2px;
 }
 
 .k-textbox {
@@ -25402,15 +25406,24 @@ kendo-card-footer {
     pointer-events: none;
 }
 
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    height: 54px;
+}
+
 .k-stepper .k-step-disabled .k-step-link {
     cursor: default;
 }
 
 .k-stepper .k-step-indicator {
     border-radius: 50%;
-    margin: 3px;
-    width: 28px;
-    height: 28px;
+    margin: 1px;
+    width: 20px;
+    height: 20px;
     border-width: 1px;
     border-style: solid;
     display: -ms-flexbox;
@@ -25524,7 +25537,7 @@ kendo-card-footer {
 
 .k-step-list-horizontal .k-step-link {
     margin: auto;
-    max-width: 10em;
+    max-width: 8em;
     -ms-flex-direction: column;
     flex-direction: column;
 }
@@ -25533,9 +25546,10 @@ kendo-card-footer {
     text-align: center;
 }
 
-.k-step-list-horizontal .k-step-indicator+.k-step-label {
+
+/* .k-step-list-horizontal .k-step-indicator+.k-step-label {
     margin-top: 5px;
-}
+} */
 
 .k-step-list-horizontal~.k-progressbar {
     width: 100%;

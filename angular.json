@@ -27,7 +27,8 @@
                             "src/styles.css",
                             "src/assets/CSS/main.css",
                             "src/assets/CSS/Card.css",
-                            "src/assets/CSS/demo.css"
+                            "src/assets/CSS/demo.css",
+                            "src/assets/CSS/Icon.css"
                         ],
                         "scripts": []
                     },

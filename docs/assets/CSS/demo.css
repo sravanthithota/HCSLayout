@@ -453,8 +453,8 @@ html {
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     /* font-family: 'Raleway', sans-serif; */
-    text-align: center;
-    color: #fffce1
+    /* text-align: center;
+    color: #fffce1 */
 }
 
 h1,
@@ -682,7 +682,7 @@ footer .swm:not(:hover) svg .l-3 {
 main {
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
     text-align: left
 }
 
