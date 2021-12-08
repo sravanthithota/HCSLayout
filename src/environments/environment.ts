@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   apiEndpoint: 'http://localhost:8080/api/',
   loggingEnabled: true,
-  loggingLevel: 'Debug'
+  loggingLevel: 'Debug',
+  // hmr: false,
 };
 
 /*

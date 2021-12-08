@@ -4,7 +4,7 @@
             <div class="row p-0 m-0">
                 <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
                     <kendo-formfield [orientation]="'horizontal'">
-                        <kendo-label [for]="fullName" text="Full Name"></kendo-label>
+                        <kendo-label [for]="fullName" text="Full Name1"></kendo-label>
                         <input class="p-p-col-12" formControlName="fullName" kendoTextBox #fullName required />
 
                         <kendo-formerror>Full Name is required</kendo-formerror>
@@ -105,7 +105,7 @@
         <div class="col-md-5 col-sm-12 colxs-12">
             <div class="card bg-green addressCard">
                 <kendo-formfield [orientation]="'horizontal'">
-                    <kendo-label class="card-address-label" [for]="fullName" text=" Address"></kendo-label>
+                    <kendo-label class="" [for]="fullName" text=" Address"></kendo-label>
                     <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
                     <kendo-formerror>Address is required</kendo-formerror>
                 </kendo-formfield>
@@ -141,9 +141,8 @@
                         </kendo-formfield>
                     </div>
                 </div>
-
                 <kendo-formfield [orientation]="'horizontal'">
-                    <kendo-label class="card-address-label" [for]="fullName" text="Email"></kendo-label>
+                    <kendo-label class="card-address-label-email" [for]="fullName" text="Email"></kendo-label>
                     <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
                     <kendo-formerror>Full Name is required</kendo-formerror>
                 </kendo-formfield>
