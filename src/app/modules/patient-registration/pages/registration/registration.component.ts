@@ -112,23 +112,35 @@ public addRegistration(){
       about: new FormControl('')
   }),
       accountDetails: new FormGroup({
-          userName: new FormControl('', Validators.required),
-          email: new FormControl('', [Validators.required, Validators.email]),
-          password: new FormControl('', Validators.required),
-          avatar: new FormControl(null)
+        country: new FormControl('', [Validators.required]),
+        gender: new FormControl(null, [Validators.required]),
+        about: new FormControl('')
       }),
      
       paymentDetails: new FormGroup({
           paymentType: new FormControl(null, Validators.required),
-          cardNumber: new FormControl('', Validators.required),
-          cvc: new FormControl('', [
-              Validators.required,
-              Validators.maxLength(3),
-              Validators.minLength(3)
-          ]),
-          expirationDate: new FormControl('', Validators.required),
-          cardHolder: new FormControl('', Validators.required)
-      })
+          country: new FormControl('', [Validators.required]),
+      gender: new FormControl(null, [Validators.required]),
+      about: new FormControl('')
+      }),
+      paymentDetails1: new FormGroup({
+        paymentType: new FormControl(null, Validators.required),
+        country: new FormControl('', [Validators.required]),
+    gender: new FormControl(null, [Validators.required]),
+    about: new FormControl('')
+    }),
+    paymentDetails2: new FormGroup({
+      paymentType: new FormControl(null, Validators.required),
+      country: new FormControl('', [Validators.required]),
+  gender: new FormControl(null, [Validators.required]),
+  about: new FormControl('')
+  }),
+  paymentDetails3: new FormGroup({
+    paymentType: new FormControl(null, Validators.required),
+    country: new FormControl('', [Validators.required]),
+gender: new FormControl(null, [Validators.required]),
+about: new FormControl('')
+})
   });
 
   public get currentGroup(): FormGroup {
@@ -155,6 +167,8 @@ public addRegistration(){
   }
 
   public submit(): void {
+    
+    this.currentStep= 0;
       // if (!this.currentGroup.valid) {
       //     this.currentGroup.markAllAsTouched();
       //     this.stepper.validateSteps();

@@ -15,7 +15,7 @@
         <!-- <h3 class="card-header">Active Issues</h3> -->
         <div class="card-block">
             <div class="">
-                <div class="card card-white">
+                <div class="card">
                     <form class="k-form k-form-horizontal" [formGroup]="registerForm">
                         <div class="row p-0 m-0">
                             <div class="image-column">
@@ -82,7 +82,7 @@
                                 </fieldset>
                             </div>
                             <div class="button-column">
-                                <div class="k-form-buttons k-actions-end feildset-button-end">
+                                <div class="k-form-buttons k-actions-end">
                                     <button class="k-button" kendoButton>Clear</button>
                                     <button class="k-button k-primary" kendoButton>
                             Search
@@ -92,46 +92,43 @@
 
                         </div>
                     </form>
-                </div>
-                <div class="example pt-1 mx-0 px-0">
+                    <!-- <div class="card card-white m-3"> -->
+                    <!-- <div class="card-block"> -->
                     <div class="card">
                         <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
+                        <form class="k-form k-form-horizontal" [formGroup]="form">
+                            <app-personal-details *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-personal-details>
 
-                        <div class="card card-white m-3">
-                            <div class="card-block">
-                                <form class="k-form k-form-horizontal" [formGroup]="form">
-                                    <app-personal-details *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-personal-details>
+                            <personal-details *ngIf="currentStep === 1" [personalDetails]="currentGroup"> </personal-details>
 
-                                    <personal-details *ngIf="currentStep === 1" [personalDetails]="currentGroup"> </personal-details>
-
-                                    <payment-details *ngIf="currentStep === 2" [paymentDetails]="currentGroup"> </payment-details>
-                                    <payment-details *ngIf="currentStep === 3" [paymentDetails]="currentGroup"> </payment-details>
-                                    <payment-details *ngIf="currentStep === 4" [paymentDetails]="currentGroup"> </payment-details>
-                                    <payment-details *ngIf="currentStep === 5" [paymentDetails]="currentGroup"> </payment-details>
-                                    <payment-details *ngIf="currentStep === 6" [paymentDetails]="currentGroup"> </payment-details>
-                                </form>
-                            </div>
-                        </div>
+                            <personal-details *ngIf="currentStep === 2" [personalDetails]="currentGroup"> </personal-details>
+                            <payment-details *ngIf="currentStep === 3" [paymentDetails]="currentGroup"> </payment-details>
+                            <payment-details *ngIf="currentStep === 4" [paymentDetails]="currentGroup"> </payment-details>
+                            <personal-details *ngIf="currentStep === 5" [personalDetails]="currentGroup"></personal-details>
+                            <personal-details *ngIf="currentStep === 6" [personalDetails]="currentGroup"></personal-details>
+                        </form>
                         <!-- <span class="k-form-separator"></span> -->
                         <div class="k-form-buttons k-form-step">
                             <span class="page">Step {{ currentStep + 1 }} of 7</span>
                             <div>
-                                <button class="k-button prev k-submit" *ngIf="currentStep !== 0" (click)="prev()" kendoButton>Previous</button>
+                                <button class="k-button prev k-submit mr-2" *ngIf="currentStep !== 0" (click)="prev()" kendoButton>Previous</button>
                                 <button class="k-button k-primary k-submit" kendoButton (click)="next()" *ngIf="currentStep !== 6">Next</button>
                                 <button class="k-button k-primary k-submit" kendoButton (click)="submit()" *ngIf="currentStep === 6">Submit</button>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
+
+
             </div>
-            <!-- </div> -->
+
         </div>
     </div>
-
-    <!-- <app-active-issues [statusCounts]="statusCounts$ | async"></app-active-issues> -->
+    <!-- </div> -->
 </div>
+
+<!-- <app-active-issues [statusCounts]="statusCounts$ | async"></app-active-issues> -->
 <kendo-dialog title="Please confirm" *ngIf="opened" (close)="close('cancel')" [minWidth]="250" [width]="450">
     <p style="margin: 30px; text-align: center;">Are you sure you want to Save?</p>
     <kendo-dialog-actions class="k-form-buttons k-actions-center">
