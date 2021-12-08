@@ -105,21 +105,21 @@
         <div class="col-md-5 col-sm-12 colxs-12">
             <div class="card bg-green addressCard">
                 <kendo-formfield [orientation]="'horizontal'">
-                    <kendo-label [for]="fullName" text=" Address"></kendo-label>
+                    <kendo-label class="card-address-label" [for]="fullName" text=" Address"></kendo-label>
                     <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
                     <kendo-formerror>Address is required</kendo-formerror>
                 </kendo-formfield>
                 <div class="row p-0 m-0">
                     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 m-0 p-0">
                         <kendo-formfield [orientation]="'horizontal'">
-                            <kendo-label [for]="fullName" text="City"></kendo-label>
+                            <kendo-label class="card-address-label" [for]="fullName" text="City"></kendo-label>
                             <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
                             <kendo-formerror>Full Name is required</kendo-formerror>
                         </kendo-formfield>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
                         <kendo-formfield [orientation]="'horizontal'">
-                            <kendo-label [for]="fullName" text="Country"></kendo-label>
+                            <kendo-label class="card-address-label" [for]="fullName" text="Country"></kendo-label>
                             <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
                             <kendo-formerror>Full Name is required</kendo-formerror>
                         </kendo-formfield>
@@ -128,25 +128,22 @@
                 <div class="row p-0 m-0">
                     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 m-0 p-0">
                         <kendo-formfield [orientation]="'horizontal'">
-                            <kendo-label [for]="fullName" text="PO Box"></kendo-label>
+                            <kendo-label class="card-address-label" [for]="fullName" text="PO Box"></kendo-label>
                             <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
                             <kendo-formerror>Full Name is required</kendo-formerror>
                         </kendo-formfield>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
                         <kendo-formfield [orientation]="'horizontal'">
-                            <kendo-label [for]="fullName" text="Contact #"></kendo-label>
+                            <kendo-label class="card-address-label" [for]="fullName" text="Contact #"></kendo-label>
                             <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
                             <kendo-formerror>Full Name is required</kendo-formerror>
                         </kendo-formfield>
                     </div>
                 </div>
 
-
-
-
                 <kendo-formfield [orientation]="'horizontal'">
-                    <kendo-label [for]="fullName" text="Email"></kendo-label>
+                    <kendo-label class="card-address-label" [for]="fullName" text="Email"></kendo-label>
                     <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
                     <kendo-formerror>Full Name is required</kendo-formerror>
                 </kendo-formfield>
