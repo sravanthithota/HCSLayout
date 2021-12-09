@@ -4,6 +4,10 @@
     min-height: 100%
 }
 
+.k-form-error {
+    display: none !important;
+}
+
 .hc-offcanvas-nav {
     display: none;
     position: fixed;
