@@ -5,7 +5,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'backlog', redirectTo: '/backlog/open', pathMatch: 'full' },
-  { path: 'patient', redirectTo: '/patient/registration', pathMatch: 'full' }
+  { path: 'patient', redirectTo: '/patient/registration', pathMatch: 'full' },
+  { path: 'tabShow', redirectTo: '/tabShow/registration', pathMatch: 'full' }
 ];
 
 @NgModule({

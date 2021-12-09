@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { PatientRegistrationRoutingModule } from './patient-registration.routing';
 import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
 import { COMPONENTS } from './components';
+import { TabDetailsShowComponent } from './components/tab-details-show/tab-details-show.component';
 
 @NgModule({
    imports: [
@@ -23,7 +24,8 @@ import { COMPONENTS } from './components';
     RegistrationComponent,
     ...PAGES,
     ...COMPONENTS,
-    PersonalDetailsComponent
+    PersonalDetailsComponent,
+    TabDetailsShowComponent
   ],
 providers: [
     // DashboardRepository,
