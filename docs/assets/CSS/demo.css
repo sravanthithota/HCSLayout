@@ -1015,6 +1015,10 @@ main .button.active {
     content: 'collections'
 }
 
+.k-form-error {
+    display: none !important;
+}
+
 .hc-offcanvas-nav li.credits>a::before {
     /* font-family: 'Material Icons'; */
     font-weight: normal;
