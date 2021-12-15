@@ -53,12 +53,12 @@
         </div> -->
         <!-- <div class=""> -->
         <div class="">
-            <form class="k-form k-form-horizontal" [formGroup]="registerForm">
+            <form class="k-form" [formGroup]="registerForm">
                 <fieldset class="k-form-fieldset row">
                     <!-- <legend class="k-form-legend">User Details</legend> -->
                     <kendo-formfield class="" [orientation]="'horizontal'">
                         <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="firstName" text="MRN :"></kendo-label>
-                        <input class="p-p-col-12" formControlName="firstName" kendoTextBox #firstName required />
+                        <input class="p-p-col-12" placeholder="firstName" formControlName="firstName" kendoTextBox #firstName required />
 
                         <!-- <kendo-formhint>Your first name</kendo-formhint> -->
                         <kendo-formerror>Error: First name is required</kendo-formerror>
@@ -130,7 +130,7 @@
                     <button class="k-button k-primary" kendoButton (click)="submitForm()">
                     Submit
                   </button>
-                    <button class="k-button" kendoButton (click)="clearForm()">Clear</button>
+                    <button class="k-button k-danger" kendoButton (click)="clearForm()">Clear</button>
                 </div>
 
             </form>

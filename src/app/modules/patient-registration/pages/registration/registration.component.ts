@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { StepperComponent } from '@progress/kendo-angular-layout';
+import { SelectEvent, StepperComponent } from '@progress/kendo-angular-layout';
 import { BreadCrumbItem } from "@progress/kendo-angular-navigation";
+import { ConfirmationDialogService } from '../../../../confirmation-dialog.service';
+
 const defaultItems: BreadCrumbItem[] = [
   {
     text: "Registration",
@@ -25,11 +27,12 @@ export class RegistrationComponent implements OnInit {
   public currentStep = 0;
   public opened = false;
   public isRegister:boolean = false;
+constructor(public confirmationDialogService:ConfirmationDialogService){
 
+}
   
   @ViewChild('stepper', {static: true})
   public stepper: StepperComponent |any;
-  constructor() { }
   public registerForm: FormGroup = new FormGroup({
     firstName: new FormControl(),
     lastName: new FormControl(),
@@ -185,6 +188,16 @@ about: new FormControl('')
           ) as FormGroup[];
       console.log(groups);
       return groups[index];
+  }
+  public onTabSelect(e: SelectEvent) {
+  console.log(e);
+}
+
+
+ public openConfirmationDialog() {
+    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
+    .then((confirmed) => console.log('User confirmed:', confirmed))
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
   }
 
 }

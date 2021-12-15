@@ -1,0 +1,218 @@
+<ng-container [formGroup]="personalDetails">
+    <div class="row px-0 mx-0 py-2">
+        <div class="col-md-7 col-sm-12 colxs-12">
+            <div class="row p-0 m-0">
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                    <kendo-formfield [orientation]="'horizontal'">
+                        <kendo-label [for]="fullName" text="Full Name1"></kendo-label>
+                        <input class="p-p-col-12" formControlName="fullName" kendoTextBox #fullName required />
+
+                        <kendo-formerror>Full Name is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                    <kendo-formfield [orientation]="'horizontal'">
+                        <kendo-label [for]="fullName" text="First Name"></kendo-label>
+                        <input class="p-p-col-12" formControlName="fullName" kendoTextBox #fullName required />
+
+                        <kendo-formerror>Full Name is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                    <kendo-formfield [orientation]="'horizontal'">
+                        <kendo-label [for]="fullName" text="Last Name"></kendo-label>
+                        <input class="p-p-col-12" formControlName="fullName" kendoTextBox #fullName required />
+
+                        <kendo-formerror>Full Name is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                    <kendo-formfield [orientation]="'horizontal'">
+                        <kendo-label [for]="fullName" text="Middle Name"></kendo-label>
+                        <input class="p-p-col-12" formControlName="fullName" kendoTextBox #fullName required />
+
+                        <kendo-formerror>Full Name is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                    <kendo-formfield showHints="initial" showErrors="initial" [orientation]="'horizontal'">
+                        <kendo-label [for]="country" text="Country"></kendo-label>
+                        <!-- <kendo-autocomplete #country [data]="countries" formControlName="country">
+                        </kendo-autocomplete> -->
+                        <!-- <kendo-label [for]="fullName" text="Full Name"></kendo-label> -->
+                        <input kendoTextBox formControlName="country" #country [clearButton]="true">
+                        <!-- <kendo-formhint>Only Eroupean countries</kendo-formhint> -->
+                        <kendo-formerror *ngIf="!(personalDetails.controls.country.required)">Country is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                    <kendo-formfield showHints="initial" showErrors="initial" [orientation]="'horizontal'">
+                        <kendo-label [for]="country" text="Region"></kendo-label>
+                        <!-- <kendo-autocomplete #country [data]="countries" formControlName="country">
+                        </kendo-autocomplete> -->
+                        <!-- <kendo-label [for]="fullName" text="Full Name"></kendo-label> -->
+                        <input kendoTextBox formControlName="country" #country [clearButton]="true">
+                        <!-- <kendo-formhint>Only Eroupean countries</kendo-formhint> -->
+                        <kendo-formerror *ngIf="!(personalDetails.controls.country.required)">Country is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+            </div>
+            <kendo-formfield orientation="horizontal" showHints="initial">
+                <kendo-label text="Gender"></kendo-label>
+                <ul class="k-radio-list k-list-horizontal">
+                    <li class="k-radio-item">
+                        <input type="radio" #male value="male" kendoRadioButton formControlName="gender" />
+                        <kendo-label class="k-radio-label" [for]="male" text="Male"></kendo-label>
+                    </li>
+
+                    <li class="k-radio-item">
+                        <input type="radio" #female value="female" kendoRadioButton formControlName="gender" />
+                        <kendo-label class="k-radio-label" [for]="female" text="Female"></kendo-label>
+                    </li>
+
+                    <li class="k-radio-item">
+                        <input type="radio" #other value="other" kendoRadioButton formControlName="gender" />
+                        <kendo-label class="k-radio-label" [for]="other" text="Other"></kendo-label>
+                    </li>
+                </ul>
+
+                <kendo-formerror>This field is required</kendo-formerror>
+            </kendo-formfield>
+
+            <div class="row p-0 m-0">
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                    <kendo-formfield [orientation]="'horizontal'">
+                        <kendo-label [for]="fullName" text="Full Name"></kendo-label>
+                        <input class="p-p-col-12" formControlName="fullName" kendoTextBox #fullName required />
+
+                        <kendo-formerror>Full Name is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12">
+                    <kendo-formfield showHints="initial" showErrors="initial" [orientation]="'horizontal'">
+                        <kendo-label [for]="country" text="Country"></kendo-label>
+                        <!-- <kendo-autocomplete #country [data]="countries" formControlName="country">
+                        </kendo-autocomplete> -->
+                        <!-- <kendo-label [for]="fullName" text="Full Name"></kendo-label> -->
+                        <input kendoTextBox formControlName="country" #country [clearButton]="true">
+                        <!-- <kendo-formhint>Only Eroupean countries</kendo-formhint> -->
+                        <kendo-formerror *ngIf="!(personalDetails.controls.country.required)">Country is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5 col-sm-12 colxs-12">
+            <div class="card bg-green addressCard">
+                <kendo-formfield [orientation]="'horizontal'">
+                    <kendo-label class="" [for]="fullName" text=" Address"></kendo-label>
+                    <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                    <kendo-formerror>Address is required</kendo-formerror>
+                </kendo-formfield>
+                <div class="row p-0 m-0">
+                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 m-0 p-0">
+                        <kendo-formfield [orientation]="'horizontal'">
+                            <kendo-label class="card-address-label" [for]="fullName" text="City"></kendo-label>
+                            <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                            <kendo-formerror>Full Name is required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                        <kendo-formfield [orientation]="'horizontal'">
+                            <kendo-label class="card-address-label" [for]="fullName" text="Country"></kendo-label>
+                            <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                            <kendo-formerror>Full Name is required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                </div>
+                <div class="row p-0 m-0">
+                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 m-0 p-0">
+                        <kendo-formfield [orientation]="'horizontal'">
+                            <kendo-label class="card-address-label" [for]="fullName" text="PO Box"></kendo-label>
+                            <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                            <kendo-formerror>Full Name is required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 p-0 m-0">
+                        <kendo-formfield [orientation]="'horizontal'">
+                            <kendo-label class="card-address-label" [for]="fullName" text="Contact #"></kendo-label>
+                            <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                            <kendo-formerror>Full Name is required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                </div>
+                <kendo-formfield [orientation]="'horizontal'">
+                    <kendo-label class="card-address-label-email" [for]="fullName" text="Email"></kendo-label>
+                    <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                    <kendo-formerror>Full Name is required</kendo-formerror>
+                </kendo-formfield>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row px-0 mx-0 py-2">
+        <div class="col-md-7 col-sm-12 col-xs-12">
+            <div class="row p-0 m-0">
+                <div class="col-md-6 col-lg-6">
+                    <kendo-formfield [orientation]="'horizontal'">
+                        <kendo-label [for]="fullName" text="City"></kendo-label>
+                        <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                        <kendo-formerror>Full Name is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <kendo-formfield [orientation]="'horizontal'">
+                        <kendo-label [for]="fullName" text="POBox"></kendo-label>
+                        <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                        <kendo-formerror>Full Name is required</kendo-formerror>
+                    </kendo-formfield>
+                </div>
+              
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-12 colxs-12">
+            <div class="col-md-6 col-lg-6">
+                <kendo-formfield [orientation]="'horizontal'">
+                    <kendo-label [for]="fullName" text="City"></kendo-label>
+                    <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                    <kendo-formerror>Full Name is required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <kendo-formfield [orientation]="'horizontal'">
+                    <kendo-label [for]="fullName" text="Address"></kendo-label>
+                    <input kendoTextBox formControlName="fullName" #fullName [clearButton]="true">
+                    <kendo-formerror>Full Name is required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+        </div>
+       
+    </div> -->
+    <div class="row px-0 mx-0 py-2">
+        <div class="col-md-6 col-lg-6">
+            <kendo-formfield orientation="horizontal" showHints="initial">
+                <kendo-label text="Age"></kendo-label>
+                <ul class="k-radio-list k-list-horizontal">
+                    <li class="k-radio-item">
+                        <input type="radio" #male value="male" kendoRadioButton formControlName="gender" />
+                        <kendo-label class="k-radio-label" [for]="male" text="25-30"></kendo-label>
+                    </li>
+
+                    <li class="k-radio-item">
+                        <input type="radio" #female value="female" kendoRadioButton formControlName="gender" />
+                        <kendo-label class="k-radio-label" [for]="female" text="0-18"></kendo-label>
+                    </li>
+
+                    <li class="k-radio-item">
+                        <input type="radio" #other value="other" kendoRadioButton formControlName="gender" />
+                        <kendo-label class="k-radio-label" [for]="other" text="35-60"></kendo-label>
+                    </li>
+                </ul>
+
+                <kendo-formerror>This field is required</kendo-formerror>
+            </kendo-formfield>
+        </div>
+    </div>
+
+</ng-container>

@@ -1,0 +1,12 @@
+.addressCard {
+    padding: 0.5rem !important;
+    border-radius: .75rem !important;
+}
+
+.card-address-label {
+    width: 46%;
+}
+
+.card-address-label-email {
+    width: 19%;
+}

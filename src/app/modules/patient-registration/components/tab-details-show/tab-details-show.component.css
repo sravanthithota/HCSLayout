@@ -5,9 +5,26 @@
     border-radius: 50%;
 }
 
+.avatar-model {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
 .image-circle {
     width: 90px;
     height: 90px;
+    border-radius: 50%;
+    background-color: #8080808c;
+    /* display: block;
+    background: #E6E7ED;
+    background-image: url(../../../../../assets/img/avtar2.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat; */
+}
+.image-circle-model {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #8080808c;
     /* display: block;
@@ -40,16 +57,18 @@
 .form-column {
     width: 76%;
 }
-
 .button-column {
     width: 14%;
     float: right;
+    display: flex;
+    align-items: center;
 }
 
 .wrapper {
     display: flex;
     justify-content: center;
 }
+
 
 .content {
     /* padding: 30px; */

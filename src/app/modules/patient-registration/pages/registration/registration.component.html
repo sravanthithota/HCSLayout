@@ -1,6 +1,6 @@
 <div class="Registration">
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center px-1 my-1">
+    <div class="border-g d-flex k-breadcrumb justify-content-between flex-wrap flex-md-nowrap align-items-center px-1 my-2">
 
         <div class="col-md order-md-first text-center text-md-left pl-0">
             <kendo-breadcrumb class="pl-0" [items]="items"></kendo-breadcrumb>
@@ -16,7 +16,7 @@
         <div class="card-block">
             <div class="">
                 <div class="card">
-                    <form class="k-form k-form-horizontal" [formGroup]="registerForm">
+                    <form class="k-form" [formGroup]="registerForm">
                         <div class="row p-0 m-0">
                             <div class="image-column">
                                 <div class="image-circle">
@@ -28,7 +28,7 @@
                             <div class="form-column">
                                 <fieldset class="k-form-fieldset row m-0">
                                     <!-- <legend class="k-form-legend">User Details</legend> -->
-                                    <kendo-formfield class="" [orientation]="'horizontal'">
+                                    <kendo-formfield class="">
                                         <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="firstName" text="MRN :"></kendo-label>
                                         <input class="p-p-col-12" formControlName="firstName" kendoTextBox #firstName required />
 
@@ -85,7 +85,7 @@
                             </div>
                             <div class="button-column">
                                 <div class="k-form-buttons k-actions-end">
-                                    <button class="k-button" kendoButton>Clear</button>
+                                    <button class="k-button k-danger" kendoButton>Clear</button>
                                     <button class="k-button k-primary" kendoButton>
                             Search
                           </button>
@@ -96,28 +96,80 @@
                     </form>
                     <!-- <div class="card card-white m-3"> -->
                     <!-- <div class="card-block"> -->
-                    <div class="card">
-                        <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
-                        <form class="k-form k-form-horizontal" [formGroup]="form">
-                            <app-personal-details *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-personal-details>
+                    <div class="pt-3">
+                        <kendo-tabstrip (tabSelect)="onTabSelect($event)">
+                            <kendo-tabstrip-tab title="Personal Details" [selected]="true">
+                                <ng-template kendoTabContent>
+                                    <div class="content">
+                                        <form class="k-form" [formGroup]="form">
+                                            <app-personal-details *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-personal-details>
+                                            <div class="k-form-buttons k-actions-center">
+                                                <!-- <span class="page">Step {{ currentStep + 1 }} of 7</span> -->
+                                                <div>
+                                                    <button class="k-button prev k-submit mr-2" kendoButton>Cancel</button>
+                                                    <button class="k-button k-primary k-submit" (click)="openConfirmationDialog()" kendoButton>Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/rainy.png" />
+                                        <h2>17<span>ºC</span></h2>
+                                        <span>Rainy weather in Paris.</span> -->
+                                    </div>
+                                </ng-template>
+                            </kendo-tabstrip-tab>
+                            <kendo-tabstrip-tab title="Next Of Kin">
+                                <ng-template kendoTabContent>
+                                    <div class="content">
+                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                        <span> Content Next Of KIn.</span>
+                                        <!-- <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/cloudy.png" />
+                                        <h2>19<span>ºC</span></h2>
+                                        <span>Cloudy weather in New York City.</span> -->
+                                    </div>
+                                </ng-template>
+                            </kendo-tabstrip-tab>
+                            <kendo-tabstrip-tab title="Vitals">
+                                <ng-template kendoTabContent>
+                                    <div class="content">
+                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                        <span>Content Vitals.</span>
+                                    </div>
+                                </ng-template>
+                            </kendo-tabstrip-tab>
+                            <kendo-tabstrip-tab title="Allergies">
+                                <ng-template kendoTabContent>
+                                    <div class="content">
+                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                        <span>Content Allergies.</span>
+                                    </div>
+                                </ng-template>
+                            </kendo-tabstrip-tab>
+                            <kendo-tabstrip-tab title="Payment Option">
+                                <ng-template kendoTabContent>
+                                    <div class="content">
+                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                        <span>Content Payment Option.</span>
+                                    </div>
+                                </ng-template>
+                            </kendo-tabstrip-tab>
+                            <kendo-tabstrip-tab title="Medication">
+                                <ng-template kendoTabContent>
+                                    <div class="content">
+                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                        <span>Content Medication.</span>
+                                    </div>
+                                </ng-template>
+                            </kendo-tabstrip-tab>
+                            <kendo-tabstrip-tab title="Visit">
+                                <ng-template kendoTabContent>
+                                    <div class="content">
+                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                        <span>Content Visit.</span>
 
-                            <personal-details *ngIf="currentStep === 1" [personalDetails]="currentGroup"> </personal-details>
-
-                            <personal-details *ngIf="currentStep === 2" [personalDetails]="currentGroup"> </personal-details>
-                            <payment-details *ngIf="currentStep === 3" [paymentDetails]="currentGroup"> </payment-details>
-                            <payment-details *ngIf="currentStep === 4" [paymentDetails]="currentGroup"> </payment-details>
-                            <personal-details *ngIf="currentStep === 5" [personalDetails]="currentGroup"></personal-details>
-                            <personal-details *ngIf="currentStep === 6" [personalDetails]="currentGroup"></personal-details>
-                        </form>
-                        <!-- <span class="k-form-separator"></span> -->
-                        <div class="k-form-buttons k-form-step">
-                            <span class="page">Step {{ currentStep + 1 }} of 7</span>
-                            <div>
-                                <button class="k-button prev k-submit mr-2" *ngIf="currentStep !== 0" (click)="prev()" kendoButton>Previous</button>
-                                <button class="k-button k-primary k-submit" kendoButton (click)="next()" *ngIf="currentStep !== 6">Next</button>
-                                <button class="k-button k-primary k-submit" kendoButton (click)="submit()" *ngIf="currentStep === 6">Submit</button>
-                            </div>
-                        </div>
+                                    </div>
+                                </ng-template>
+                            </kendo-tabstrip-tab>
+                        </kendo-tabstrip>
                     </div>
 
                 </div>
@@ -134,120 +186,181 @@
 <kendo-dialog title="Please confirm" *ngIf="opened" (close)="close('cancel')" [minWidth]="250" [width]="450">
     <p style="margin: 30px; text-align: center;">Are you sure you want to Save?</p>
     <kendo-dialog-actions class="k-form-buttons k-actions-center">
-        <button kendoButton class="k-button" (click)="close('no')">No</button>
+        <button kendoButton class="k-button k-danger" (click)="close('no')">No</button>
         <button kendoBmbkutton class="k-button k-primary" (click)="close('yes')" primary="true">Yes</button>
     </kendo-dialog-actions>
 </kendo-dialog>
 
 <kendo-dialog title="Patient Registration" *ngIf="isRegister" (close)="close('cancel')" [minWidth]="250" [height]="550" [width]="800">
-    <div class="card">
-        <!-- <h3 class="card-header">Active Issues</h3> -->
-        <div class="card-block">
-            <div class="">
-                <form class="k-form k-form-horizontal" [formGroup]="registerForm">
-                    <fieldset class="k-form-fieldset row">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <kendo-formfield class="" [orientation]="'horizontal'">
-                                <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="firstName" text="MRN :"></kendo-label>
-                                <input class="p-p-col-12" formControlName="firstName" kendoTextBox #firstName required />
-
-                                <!-- <kendo-formhint>Your first name</kendo-formhint> -->
-                                <kendo-formerror>Error: First name is required</kendo-formerror>
-                            </kendo-formfield>
-                        </div>
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <kendo-formfield class="" [orientation]="'horizontal'">
-                                <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="firstName" text="First Name :"></kendo-label>
-                                <input class="p-col-12" formControlName="firstName" kendoTextBox #firstName required />
-
-                                <!-- <kendo-formhint>Your first name</kendo-formhint> -->
-                                <kendo-formerror>Error: First name is required</kendo-formerror>
-                            </kendo-formfield>
-                        </div>
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <kendo-formfield class="" [orientation]="'horizontal'">
-                                <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="lastName" text="Middle Name :"></kendo-label>
-                                <input class="p-col-12" formControlName="lastName" kendoTextBox #lastName required />
-
-                                <!-- <kendo-formhint>Your last name</kendo-formhint> -->
-                                <kendo-formerror>Error: Last name is required</kendo-formerror>
-                            </kendo-formfield>
-                        </div>
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <kendo-formfield class="" [orientation]="'horizontal'">
-                                <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="lastName" text="Family Name :"></kendo-label>
-                                <input class="p-col-12" formControlName="lastName" kendoTextBox #lastName required />
-
-                                <!-- <kendo-formhint>Your last name</kendo-formhint> -->
-                                <kendo-formerror>Error: Last name is required</kendo-formerror>
-                            </kendo-formfield>
-                        </div>
-                        <!-- <legend class="k-form-legend">User Details</legend> -->
-
-
-
-
-
-
-
-                        <kendo-formfield class="" [orientation]="'horizontal'">
-                            <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="DOB :"></kendo-label>
-                            <input class="p-col-12" formControlName="email" kendoTextBox #email required />
-
-                            <!-- <kendo-formhint>Your active email</kendo-formhint> -->
-                            <kendo-formerror>Error: Not valid email format</kendo-formerror>
-                        </kendo-formfield>
-                        <kendo-formfield class="" [orientation]="'horizontal'">
-                            <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="Nationality :"></kendo-label>
-                            <input class="p-col-12" formControlName="email" kendoTextBox #email required />
-
-                            <!-- <kendo-formhint>Your active email</kendo-formhint> -->
-                            <kendo-formerror>Error: Not valid email format</kendo-formerror>
-                        </kendo-formfield>
-                        <kendo-formfield class="" [orientation]="'horizontal'">
-                            <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="Mobile# :"></kendo-label>
-                            <input class="p-col-12" formControlName="email" kendoTextBox #email required />
-
-                            <!-- <kendo-formhint>Your active email</kendo-formhint> -->
-                            <kendo-formerror>Error: Not valid email format</kendo-formerror>
-                        </kendo-formfield>
-                    </fieldset>
-
-
-                </form>
-
-                <div class="example pt-3 mt-3 mx-0 px-0">
-                    <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
-                    <form class="k-form k-form-horizontal" [formGroup]="form">
-                        <app-personal-details *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-personal-details>
-
-                        <personal-details *ngIf="currentStep === 1" [personalDetails]="currentGroup"> </personal-details>
-
-                        <payment-details *ngIf="currentStep === 2" [paymentDetails]="currentGroup"> </payment-details>
-                        <payment-details *ngIf="currentStep === 3" [paymentDetails]="currentGroup"> </payment-details>
-                        <payment-details *ngIf="currentStep === 4" [paymentDetails]="currentGroup"> </payment-details>
-                        <payment-details *ngIf="currentStep === 5" [paymentDetails]="currentGroup"> </payment-details>
-                        <payment-details *ngIf="currentStep === 6" [paymentDetails]="currentGroup"> </payment-details>
-                        <span class="k-form-separator"></span>
-
-                        <div class="k-form-buttons k-form-step">
-                            <span class="page">Step {{ currentStep + 1 }} of 7</span>
-                            <div>
-                                <button class="k-button prev k-submit" *ngIf="currentStep !== 0" (click)="prev()" kendoButton>Previous</button>
-                                <button class="k-button k-primary k-submit" kendoButton (click)="next()" *ngIf="currentStep !== 6">Next</button>
-                                <button class="k-button k-primary k-submit" kendoButton (click)="submit()" *ngIf="currentStep === 6">Submit</button>
+    <!-- <h3 class="card-header">Active Issues</h3> -->
+    <div class="card-block">
+        <div class="">
+            <div class="card">
+                <form class="k-form" [formGroup]="registerForm">
+                    <div class="row p-0 m-0">
+                        <div class="image-column">
+                            <div class="image-circle-model">
+                                <!-- <img src="../../../../../assets/img/avtar2.png" class="avatar" alt="Avatar"> -->
+                                <img src="./assets/img/avtar2.png" class="avatar-model" alt="Avatar">
                             </div>
                         </div>
-                    </form>
+                        <div class="form-column">
+                            <fieldset class="k-form-fieldset row m-0">
+                                <!-- <legend class="k-form-legend">User Details</legend> -->
+                                <kendo-formfield class="">
+                                    <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="firstName" text="MRN :"></kendo-label>
+                                    <input class="p-p-col-12" formControlName="firstName" kendoTextBox #firstName required />
+
+                                    <!-- <kendo-formhint>Your first name</kendo-formhint> -->
+                                    <kendo-formerror>Error: First name is required</kendo-formerror>
+                                </kendo-formfield>
+                                <kendo-formfield class="" [orientation]="'horizontal'">
+                                    <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="firstName" text="First Name :"></kendo-label>
+                                    <input class="p-col-12" formControlName="firstName" kendoTextBox #firstName required />
+
+                                    <!-- <kendo-formhint>Your first name</kendo-formhint> -->
+                                    <kendo-formerror>Error: First name is required</kendo-formerror>
+                                </kendo-formfield>
+
+                                <kendo-formfield class="" [orientation]="'horizontal'">
+                                    <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="lastName" text="Middle Name :"></kendo-label>
+                                    <input class="p-col-12" formControlName="lastName" kendoTextBox #lastName required />
+
+                                    <!-- <kendo-formhint>Your last name</kendo-formhint> -->
+                                    <kendo-formerror>Error: Last name is required</kendo-formerror>
+                                </kendo-formfield>
+
+                                <kendo-formfield class="" [orientation]="'horizontal'">
+                                    <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="lastName" text="Family Name :"></kendo-label>
+                                    <input class="p-col-12" formControlName="lastName" kendoTextBox #lastName required />
+
+                                    <!-- <kendo-formhint>Your last name</kendo-formhint> -->
+                                    <kendo-formerror>Error: Last name is required</kendo-formerror>
+                                </kendo-formfield>
+
+                                <kendo-formfield class="" [orientation]="'horizontal'">
+                                    <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="DOB :"></kendo-label>
+                                    <input class="p-col-12" formControlName="email" kendoTextBox #email required />
+
+                                    <!-- <kendo-formhint>Your active email</kendo-formhint> -->
+                                    <kendo-formerror>Error: Not valid email format</kendo-formerror>
+                                </kendo-formfield>
+                                <kendo-formfield class="" [orientation]="'horizontal'">
+                                    <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="Nationality :"></kendo-label>
+                                    <input class="p-col-12" formControlName="email" kendoTextBox #email required />
+
+                                    <!-- <kendo-formhint>Your active email</kendo-formhint> -->
+                                    <kendo-formerror>Error: Not valid email format</kendo-formerror>
+                                </kendo-formfield>
+                                <kendo-formfield class="" [orientation]="'horizontal'">
+                                    <kendo-label class="p-col-12 mb-2 mb-md-0" [for]="email" text="Mobile# :"></kendo-label>
+                                    <input class="p-col-12" formControlName="email" kendoTextBox #email required />
+
+                                    <!-- <kendo-formhint>Your active email</kendo-formhint> -->
+                                    <kendo-formerror>Error: Not valid email format</kendo-formerror>
+                                </kendo-formfield>
+
+                            </fieldset>
+                        </div>
+                        <div class="button-column">
+                            <div class="k-form-buttons k-actions-end">
+                                <button class="k-button k-danger" kendoButton>Clear</button>
+                                <button class="k-button k-primary" kendoButton>
+                            Search
+                          </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <!-- <div class="card card-white m-3"> -->
+                <!-- <div class="card-block"> -->
+                <div class="pt-3">
+                    <kendo-tabstrip (tabSelect)="onTabSelect($event)">
+                        <kendo-tabstrip-tab title="Personal Details" [selected]="true">
+                            <ng-template kendoTabContent>
+                                <div class="content">
+                                    <form class="k-form" [formGroup]="form">
+                                        <app-personal-details *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-personal-details>
+                                        <div class="k-form-buttons k-actions-center">
+                                            <!-- <span class="page">Step {{ currentStep + 1 }} of 7</span> -->
+                                            <div>
+                                                <button class="k-button prev k-submit mr-2" kendoButton>Cancel</button>
+                                                <button class="k-button k-primary k-submit" kendoButton (click)="openConfirmationDialog()">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/rainy.png" />
+                                        <h2>17<span>ºC</span></h2>
+                                        <span>Rainy weather in Paris.</span> -->
+                                </div>
+                            </ng-template>
+                        </kendo-tabstrip-tab>
+                        <kendo-tabstrip-tab title="Next Of Kin">
+                            <ng-template kendoTabContent>
+                                <div class="content">
+                                    <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                    <span> Content Next Of KIn.</span>
+                                    <!-- <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/cloudy.png" />
+                                        <h2>19<span>ºC</span></h2>
+                                        <span>Cloudy weather in New York City.</span> -->
+                                </div>
+                            </ng-template>
+                        </kendo-tabstrip-tab>
+                        <kendo-tabstrip-tab title="Vitals">
+                            <ng-template kendoTabContent>
+                                <div class="content">
+                                    <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                    <span>Content Vitals.</span>
+                                </div>
+                            </ng-template>
+                        </kendo-tabstrip-tab>
+                        <kendo-tabstrip-tab title="Allergies">
+                            <ng-template kendoTabContent>
+                                <div class="content">
+                                    <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                    <span>Content Allergies.</span>
+                                </div>
+                            </ng-template>
+                        </kendo-tabstrip-tab>
+                        <kendo-tabstrip-tab title="Payment Option">
+                            <ng-template kendoTabContent>
+                                <div class="content">
+                                    <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                    <span>Content Payment Option.</span>
+                                </div>
+                            </ng-template>
+                        </kendo-tabstrip-tab>
+                        <kendo-tabstrip-tab title="Medication">
+                            <ng-template kendoTabContent>
+                                <div class="content">
+                                    <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                    <span>Content Medication.</span>
+                                </div>
+                            </ng-template>
+                        </kendo-tabstrip-tab>
+                        <kendo-tabstrip-tab title="Visit">
+                            <ng-template kendoTabContent>
+                                <div class="content">
+                                    <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
+                                    <span>Content Visit.</span>
+
+                                </div>
+                            </ng-template>
+                        </kendo-tabstrip-tab>
+                    </kendo-tabstrip>
                 </div>
+
             </div>
-            <!-- </div> -->
+
+
         </div>
+
     </div>
-    <kendo-dialog-actions>
+    <!-- <kendo-dialog-actions>
         <div class="k-form-buttons k-actions-center">
-            <button kendoButton class="k-button" (click)="close('no')">Cancel</button>
+            <button kendoButton class="k-button k-danger" (click)="close('no')">Cancel</button>
             <button kendoBmbkutton class="k-button k-primary" (click)="close('yes')" primary="true">Submit</button>
         </div>
-    </kendo-dialog-actions>
+    </kendo-dialog-actions> -->
 </kendo-dialog>

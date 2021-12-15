@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap");
 .hc-nav-open {
     position: fixed;
     width: 100%;
@@ -450,14 +451,6 @@ html {
     height: 100%
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    /* font-family: 'Raleway', sans-serif; */
-    /* text-align: center;
-    color: #fffce1 */
-    font-size: 13px;
-    font-weight: 300;
-}
 
 h1,
 h2,
