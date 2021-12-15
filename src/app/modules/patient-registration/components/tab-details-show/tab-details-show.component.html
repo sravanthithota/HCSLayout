@@ -15,7 +15,7 @@
         <!-- <h3 class="card-header">Active Issues</h3> -->
         <div class="card-block">
             <div class="">
-                <div class="card">
+                <div class="card bg-gray">
                     <form class="k-form k-form-horizontal" [formGroup]="registerForm">
                         <div class="row p-0 m-0">
                             <div class="image-column">
@@ -94,85 +94,37 @@
 
                         </div>
                     </form>
-                    <!-- <div class="card card-white m-3"> -->
-                    <!-- <div class="card-block"> -->
-                    <div class="pt-3">
-                        <kendo-tabstrip (tabSelect)="onTabSelect($event)">
-                            <kendo-tabstrip-tab title="Personal Details" [selected]="true">
-                                <ng-template kendoTabContent>
-                                    <div class="content">
-                                        <form class="k-form k-form-horizontal" [formGroup]="form">
-                                            <app-example-form *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-example-form>
-                                            <div class="k-form-buttons k-actions-center">
-                                                <!-- <span class="page">Step {{ currentStep + 1 }} of 7</span> -->
-                                                <div>
-                                                    <button class="k-button prev k-submit mr-2" kendoButton>Cancel</button>
-                                                    <button class="k-button k-primary k-submit" kendoButton>Submit</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <!-- <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/rainy.png" />
-                                        <h2>17<span>ºC</span></h2>
-                                        <span>Rainy weather in Paris.</span> -->
-                                    </div>
-                                </ng-template>
-                            </kendo-tabstrip-tab>
-                            <kendo-tabstrip-tab title="Next Of Kin">
-                                <ng-template kendoTabContent>
-                                    <div class="content">
-                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
-                                        <span> Content Next Of KIn.</span>
-                                        <!-- <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/cloudy.png" />
-                                        <h2>19<span>ºC</span></h2>
-                                        <span>Cloudy weather in New York City.</span> -->
-                                    </div>
-                                </ng-template>
-                            </kendo-tabstrip-tab>
-                            <kendo-tabstrip-tab title="Vitals">
-                                <ng-template kendoTabContent>
-                                    <div class="content">
-                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
-                                        <span>Content Vitals.</span>
-                                    </div>
-                                </ng-template>
-                            </kendo-tabstrip-tab>
-                            <kendo-tabstrip-tab title="Allergies">
-                                <ng-template kendoTabContent>
-                                    <div class="content">
-                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
-                                        <span>Content Allergies.</span>
-                                    </div>
-                                </ng-template>
-                            </kendo-tabstrip-tab>
-                            <kendo-tabstrip-tab title="Payment Option">
-                                <ng-template kendoTabContent>
-                                    <div class="content">
-                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
-                                        <span>Content Payment Option.</span>
-                                    </div>
-                                </ng-template>
-                            </kendo-tabstrip-tab>
-                            <kendo-tabstrip-tab title="Medication">
-                                <ng-template kendoTabContent>
-                                    <div class="content">
-                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
-                                        <span>Content Medication.</span>
-                                    </div>
-                                </ng-template>
-                            </kendo-tabstrip-tab>
-                            <kendo-tabstrip-tab title="Visit">
-                                <ng-template kendoTabContent>
-                                    <div class="content">
-                                        <img src="https://www.telerik.com/kendo-angular-ui-develop/components/layout/assets/tabstrip/sunny.png" />
-                                        <span>Content Visit.</span>
-
-                                    </div>
-                                </ng-template>
-                            </kendo-tabstrip-tab>
-                        </kendo-tabstrip>
-                    </div>
-
                 </div>
+
+                <div class="card bg-gray">
+                    <div class="card-block">
+                        <div class="example mx-0 px-0">
+                            <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
+                            <form class="k-form k-form-horizontal" [formGroup]="form">
+                                <app-example-form *ngIf="currentStep === 0" [personalDetails]="currentGroup"> </app-example-form>
+
+                                <personal-details *ngIf="currentStep === 1" [personalDetails]="currentGroup"> </personal-details>
+
+                                <payment-details *ngIf="currentStep === 2" [paymentDetails]="currentGroup"> </payment-details>
+                                <payment-details *ngIf="currentStep === 3" [paymentDetails]="currentGroup"> </payment-details>
+                                <payment-details *ngIf="currentStep === 4" [paymentDetails]="currentGroup"> </payment-details>
+                                <payment-details *ngIf="currentStep === 5" [paymentDetails]="currentGroup"> </payment-details>
+                                <payment-details *ngIf="currentStep === 6" [paymentDetails]="currentGroup"> </payment-details>
+                                <span class="k-form-separator"></span>
+
+                                <div class="k-form-buttons k-form-step">
+                                    <span class="page">Step {{ currentStep + 1 }} of 7</span>
+                                    <div>
+                                        <button class="k-button prev k-submit" *ngIf="currentStep !== 0" (click)="prev()" kendoButton>Previous</button>
+                                        <button class="k-button k-primary k-submit" kendoButton (click)="next()" *ngIf="currentStep !== 6">Next</button>
+                                        <button class="k-button k-primary k-submit" kendoButton (click)="submit()" *ngIf="currentStep === 6">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
 
 
             </div>
